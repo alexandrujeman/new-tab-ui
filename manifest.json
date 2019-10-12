@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "New Tab UI",
+  "description": "New Tab Override",
+  "version": "1.0.0",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "offline_enabled": true,
+  "incognito": "spanning",
+  "permissions": ["tabs"],
+  "background": {
+    "scripts": ["newtab.js"],
+    "persistent": false
+  }
+}
