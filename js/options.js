@@ -2,6 +2,7 @@
 function save_options() {
   var colors = document.getElementById("colors").value;
   var name = document.getElementById("name").value;
+  
   chrome.storage.sync.set(
     {
       clockColor: colors,

@@ -1,3 +1,46 @@
+// Restores state using the preferences
+// stored in chrome.storage. If empty will ask for name.
+function apply_options() {
+  // Use default value color = '#FFFFFF'
+  chrome.storage.sync.get(
+    {
+      clockColor: "#FFFFFF",
+      firstName: ""
+    },
+    function(items) {
+      document.getElementById("hours").style.color = items.clockColor;
+      document.getElementById("minutes").style.color = items.clockColor;
+      document.getElementById("firstname").innerHTML = `Hello ${items.firstName}`;
+      document.getElementById("firstname").style.color = items.clockColor;
+    }
+  );
+}
+
+apply_options();
+
+// Random ackground image from ./img
+const body = document.querySelector("body");
+const totalImages = 5;
+
+function paintImage(imgNumber) {
+    const image = new Image();
+    image.src = `./img/${imgNumber + 1}.jpg`;
+    image.classList.add("background-image");
+    body.appendChild(image);
+}
+
+function genRandom() {
+    const number = Math.floor(Math.random() * totalImages);
+    return number;
+}
+
+function bgInit() {
+    const randomNumber = genRandom();
+    paintImage(randomNumber);
+}
+
+bgInit();
+
 // Clock function
 function clock() {
   const fullDate = new Date();
@@ -18,26 +61,6 @@ function clock() {
 }
 
 setInterval(clock, 100);
-
-// Restores state using the preferences
-// stored in chrome.storage. If empty will ask for name.
-function apply_options() {
-  // Use default value color = '#FFFFFF'
-  chrome.storage.sync.get(
-    {
-      clockColor: "#FFFFFF",
-      firstName: ""
-    },
-    function(items) {
-      document.getElementById("hours").style.color = items.clockColor;
-      document.getElementById("minutes").style.color = items.clockColor;
-      document.getElementById("firstname").innerHTML = `Hello ${items.firstName}`;
-      document.getElementById("firstname").style.color = items.clockColor;
-    }
-  );
-}
-
-apply_options();
 
 // Get Name variables
 const form = document.querySelector(".name-form");
