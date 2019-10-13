@@ -11,9 +11,13 @@
   },
   "offline_enabled": true,
   "incognito": "spanning",
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "storage"],
   "background": {
-    "scripts": ["newtab.js"],
+    "scripts": ["popup.js"],
     "persistent": false
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
   }
 }
