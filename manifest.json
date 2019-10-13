@@ -13,11 +13,11 @@
   "incognito": "spanning",
   "permissions": ["tabs", "storage"],
   "background": {
-    "scripts": ["popup.js"],
+    "scripts": ["./js/popup.js"],
     "persistent": false
   },
   "options_ui": {
-    "page": "options.html",
+    "page": "./options.html",
     "open_in_tab": false
   }
 }
