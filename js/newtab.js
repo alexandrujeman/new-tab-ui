@@ -1,3 +1,4 @@
+// Clock function
 function clock() {
   const fullDate = new Date();
 
@@ -18,14 +19,13 @@ function clock() {
 
 setInterval(clock, 100);
 
-// Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
-function restore_options() {
-  // Use default value color = 'red' and likesColor = true.
+// Restores state using the preferences
+// stored in chrome.storage. If empty will ask for name.
+function apply_options() {
+  // Use default value color = '#FFFFFF'
   chrome.storage.sync.get(
     {
-      clockColor: "#FF0000",
-      likesColor: true,
+      clockColor: "#FFFFFF",
       firstName: ""
     },
     function(items) {
@@ -37,4 +37,50 @@ function restore_options() {
   );
 }
 
-restore_options();
+apply_options();
+
+// Get Name variables
+const form = document.querySelector(".name-form");
+const inputName = document.getElementById("inputName");
+// Check for Name existing name
+function checkName() {}
+// Handle Name submit
+function handleSubmit(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const inputValue = inputName.value;
+  form.classList.remove("show");
+  saveName(inputValue);
+}
+
+// Ask for Name
+function ask_name() {
+  checkName();
+  form.classList.add("show");
+  form.addEventListener("submit", handleSubmit);
+}
+
+// Save Name
+function saveName(inputName) {
+  chrome.storage.sync.set({
+    firstName: inputName
+  });
+  document.getElementById("firstname").innerHTML = `Hello ${inputName}`;
+}
+
+function nameInit() {
+  chrome.storage.sync.get(
+    {
+      firstName: ""
+    },
+    function(items) {
+      let currentUser = items.firstName;
+      if (currentUser === null) {
+        document.getElementById("firstname").innerHTML = `Hello`;
+        ask_name();
+      }
+    }
+  );
+}
+
+nameInit();
