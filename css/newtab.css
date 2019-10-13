@@ -35,3 +35,9 @@ button {
   margin: 200px auto;
   font-size: 6rem;
 }
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1457327289196-f38b88d97147?ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

@@ -2,6 +2,7 @@
   "manifest_version": 2,
   "name": "New Tab UI",
   "description": "New Tab Override",
+  "author": "Alexandru Jeman",
   "version": "1.0.0",
   "chrome_url_overrides": {
     "newtab": "newtab.html"

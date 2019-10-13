@@ -3,7 +3,6 @@ function clock() {
 
   let hours = fullDate.getHours();
   let minutes = fullDate.getMinutes();
-  let seconds = fullDate.getSeconds();
 
   if (hours < 10) {
     hours = `0${hours}`;
@@ -13,13 +12,8 @@ function clock() {
     minutes = `0${minutes}`;
   }
 
-  if (seconds < 10) {
-    seconds = `0${seconds}`;
-  }
-
-  document.getElementById('hours').innerHTML = hours;
-  document.getElementById('minutes').innerHTML = `:${minutes}`;
-  document.getElementById('seconds').innerHTML = `:${seconds}`;
+  document.getElementById("hours").innerHTML = hours;
+  document.getElementById("minutes").innerHTML = `:${minutes}`;
 }
 
 setInterval(clock, 100);
@@ -32,15 +26,13 @@ function restore_options() {
     {
       clockColor: "#FF0000",
       likesColor: true,
-      firstName: "",
+      firstName: ""
     },
     function(items) {
       document.getElementById("hours").style.color = items.clockColor;
       document.getElementById("minutes").style.color = items.clockColor;
-      document.getElementById("seconds").style.color = items.clockColor;
       document.getElementById("firstname").innerHTML = `Hello ${items.firstName}`;
-  
-  
+      document.getElementById("firstname").style.color = items.clockColor;
     }
   );
 }

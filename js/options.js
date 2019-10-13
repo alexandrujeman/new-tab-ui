@@ -1,12 +1,10 @@
 // Saves options to chrome.storage
 function save_options() {
   var colors = document.getElementById("colors").value;
-  var likesColor = document.getElementById("like").checked;
   var name = document.getElementById("name").value;
   chrome.storage.sync.set(
     {
       clockColor: colors,
-      likesColor: likesColor,
       firstName: name
     },
     function() {
@@ -27,12 +25,10 @@ function restore_options() {
   chrome.storage.sync.get(
     {
       clockColor: "#FF0000",
-      likesColor: true,
       firstName: "",
     },
     function(items) {
       document.getElementById("colors").value = items.clockColor;
-      document.getElementById("like").checked = items.likesColor;
       document.getElementById("name").value = items.firstName;
       console.log(items.firstName)
     }
