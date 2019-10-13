@@ -68,7 +68,7 @@ input {
 }
 
 .shadow-text {
-  text-shadow: 0 4px 5px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 10px 15px rgba(0, 0, 0, 0.60);
 }
 
 form {
