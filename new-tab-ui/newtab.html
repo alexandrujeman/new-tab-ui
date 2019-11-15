@@ -4,10 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Tab</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link rel="stylesheet" href="./css/app.css" />
   </head>
   <body>
     <div class="container">
+        
       <div class="content">
         <span id="hours" class="shadow-text">03:</span
         ><span id="minutes" class="shadow-text">01</span><br />
@@ -20,7 +23,16 @@
             placeholder="What is your name?"
           />
         </form>
-        <div class="task-list">
+        <div class="task-list-container">
+            <form class="task-list-form form">
+                <input
+                  type="text"
+                  id="inputTask"
+                  class="shadow-text"
+                  placeholder="Enter New Task"
+                />
+                <input type="submit" value="Add Task" id="" class="btn btn-tasklist" />
+              </form>
           <ul class="collection"></ul>
         </div>
       </div>
