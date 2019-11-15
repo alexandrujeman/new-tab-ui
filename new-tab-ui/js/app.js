@@ -37,7 +37,7 @@ function getData() {
       }
       if (userColor === null || userColor.length === 0) {
         userColor = "";
-        document.body.style.color = "#FF00FF";
+        document.body.style.color = "#ffffff";
       } else {
         document.body.style.color = userColor;
       }
