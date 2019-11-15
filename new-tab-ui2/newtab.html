@@ -4,18 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Tab</title>
-    <link rel="stylesheet" href="./css/newtab.css">
+    <link rel="stylesheet" href="./css/app.css" />
   </head>
   <body>
-    <div>
-    <div class="maincontent">
-      <span id="hours" class="shadow-text">03:</span><span id="minutes" class="shadow-text">01</span><br>
-      <span id="firstname" class="shadow-text">Hello</span>
-      <form class="name-form form">
-        <input type="text" id="inputName" class="shadow-text" placeholder="What is your name?">
-      </form>
+    <div class="container">
+      <div class="content">
+        <span id="hours" class="shadow-text">03:</span
+        ><span id="minutes" class="shadow-text">01</span><br />
+        <span id="firstname" class="shadow-text">Hello</span>
+        <form class="name-form form">
+          <input
+            type="text"
+            id="inputName"
+            class="shadow-text"
+            placeholder="What is your name?"
+          />
+        </form>
+        <div class="task-list">
+          <ul class="collection"></ul>
+        </div>
+      </div>
     </div>
-  </div>
-  <script src="./js/newtab.js"></script>
+    <script src="./js/clock.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/background.js"></script>
   </body>
 </html>

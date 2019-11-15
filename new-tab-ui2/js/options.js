@@ -1,12 +1,14 @@
 // Saves options to chrome.storage
 function save_options() {
-  var colors = document.getElementById("colors").value;
+  var color = document.getElementById("colors").value;
   var name = document.getElementById("name").value;
   
   chrome.storage.sync.set(
     {
-      clockColor: colors,
-      firstName: name
+      user: {
+        "name": name,
+        "color": color,
+      }
     },
     function() {
       // Update status to let user know options were saved.
@@ -20,12 +22,16 @@ function save_options() {
 }
 
 function reset_options() {
-  var colors = "#FFFFFF";
+  var color = "#FFFFFF";
   var name = null;
+  var tasks = []
   chrome.storage.sync.set(
     {
-      clockColor: colors,
-      firstName: name
+      user: {
+        "name": name,
+        "color": color,
+        "tasks": tasks
+      }
     },
     function() {
       // Update status to let user know options were reset.
@@ -45,12 +51,14 @@ function restore_options() {
   // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get(
     {
-      clockColor: "#FFFFFF",
-      firstName: "",
+      user: {
+        "name": "",
+        "color": "#ffffff"
+      }
     },
     function(items) {
-      document.getElementById("colors").value = items.clockColor;
-      document.getElementById("name").value = items.firstName;
+      document.getElementById("colors").value = items.user.color;
+      document.getElementById("name").value = items.user.name;
     }
   );
 }
