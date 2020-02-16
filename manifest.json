@@ -5,7 +5,7 @@
   "author": "Alexandru Jeman",
   "version": "1.0.0",
   "chrome_url_overrides": {
-    "newtab": "newtab.html"
+    "newtab": "index.html"
   },
   "browser_action": {
     "default_icon": "icon.png"
@@ -14,7 +14,7 @@
   "incognito": "spanning",
   "permissions": ["tabs", "storage"],
   "background": {
-    "scripts": ["./js/popup.js"],
+    "scripts": ["./js/newtab.js"],
     "persistent": false
   },
   "options_ui": {
